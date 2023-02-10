@@ -1,12 +1,17 @@
 <template>
-  <div><Home /></div>
+	<div class="application-animation">
+		<Home/>
+	</div>
 </template>
 
 <script>
-import Home from "../components/pageComponets/home.vue";
-
+import Home from '@/components/pageComponents/home.vue';
 export default {
-  name: "IndexPage",
-  components: { Home },
+	components: { Home },
 };
 </script>
+
+<style>
+  @import url('~/assets/css/app.css');
+
+</style>

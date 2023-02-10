@@ -6,8 +6,8 @@ export default {
     titleTemplate: '%s - nikan_project',
     title: 'nikan_project',
     htmlAttrs: {
-      lang: 'fa',
-      dir: 'rtl'
+      lang: 'en',
+      dir: 'ltr'
     },
     meta: [
       { charset: 'utf-8' },
@@ -38,14 +38,14 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios', 'nuxt-sweetalert2'],
 
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: false,
+      dark: true,
       themes: {
         dark: {
           primary: colors.blue.darken2,

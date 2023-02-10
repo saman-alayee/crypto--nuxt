@@ -1,67 +1,39 @@
 <template>
   <v-app dark>
-    <v-app-bar color="cyan accent-3" fixed app>
-      <v-btn color="white" icon @click.stop="rightDrawer = !rightDrawer">
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
-      <v-spacer /><v-toolbar-title class="white--text" v-text="title" />
-      <v-spacer />
-      <v-btn color="white" icon @click.stop="fixed = !fixed">
-        <v-badge content="99+" color="error" overlap><v-icon>mdi-bell</v-icon></v-badge>
-      </v-btn>
-    </v-app-bar>
-    <v-main>
-      <v-container>
-        <Nuxt />
-      </v-container>
-    </v-main>
-    <v-navigation-drawer
-      width="200px"
-      v-model="rightDrawer"
-      right
-      temporary
-      absolute
-    >
-      <v-list>
-        <v-list-item>
-          <v-list-item-action> </v-list-item-action>
-          <v-list-item-title class="nav-item">
-            <nuxt-link to="wallet"> کیف پول </nuxt-link>
-          </v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <the-footer />
+    
+    <TheHeader @sidenavToggle="displaySidenav = !displaySidenav" />
+    <TheSidenav :show="displaySidenav" @close="displaySidenav = false" />
+    <v-container><Nuxt />
+    </v-container>
+    <Footer/>
   </v-app>
 </template>
 
 <script>
-import theFooter from "../components/pageComponets/footer/theFooter.vue";
+import TheHeader from "@/components/Navigation/TheHeader";
+import TheSidenav from "@/components/Navigation/TheSidenav";
+import Footer from '../components/footer/footer.vue';
+
 export default {
-  components: { theFooter },
-  name: "DefaultLayout",
+  components: {
+    TheHeader,
+    TheSidenav,
+    Footer
+  },
   data() {
     return {
-      rightDrawer: false,
-      title: "Nikan-Test",
+      displaySidenav: false,
     };
   },
 };
 </script>
-<style>
-.nav-item a {
-  text-decoration: none;
-  color: black;
-  font-size: 1rem;
-  padding: 20px;
+<style scoped>
+html {
+  font-size: 30px;
 }
-
-.nav-item a:hover {
-  transition: 0.8s;
-  background-color: #4461f2;
-  color: #fff;
-  display: flex;
-  justify-content: flex-end;
-  border-radius: 20px;
+body {
+  margin: 0;
+  font-size: 30px;
+  background-color: #1b2431;
 }
 </style>
