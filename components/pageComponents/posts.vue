@@ -4,9 +4,9 @@
       <v-col v-for="post in posts" :key="post.title" cols="12" md="3" sm="6"
         ><BaseCardBlog
           :image="post.image"
-          :date="post.date"
+          :date="post.category"
           :describe="post.describe"
-          :subtitle="post.subtitle"
+          :subtitle="post.price"
           :title="post.title"
       /></v-col>
     </v-row>
@@ -20,74 +20,17 @@ export default {
   },
   data() {
     return {
-      posts: [
-        {
-          date: "2019",
-          subtitle: "it is image ",
-          title: "there is a title",
-          describe: "Lorem ipsum dolor sit Lorem ipsum dolor sit",
-          image:
-            "https://www.analyticsinsight.net/wp-content/uploads/2021/08/cp2.jpg",
-        },
-        {
-          date: "2019",
-          subtitle: "it is image ",
-          title: "there is a title",
-          describe: "Lorem ipsum dolor sit Lorem ipsum dolor sit",
-          image:
-            "https://www.analyticsinsight.net/wp-content/uploads/2021/08/cp2.jpg",
-        },
-        {
-          date: "2019",
-          subtitle: "it is image ",
-          title: "there is a title",
-          describe: "Lorem ipsum dolor sit Lorem ipsum dolor sit",
-          image:
-            "https://www.analyticsinsight.net/wp-content/uploads/2021/08/cp2.jpg",
-        },
-        {
-          date: "2019",
-          subtitle: "it is image ",
-          title: "there is a title",
-          describe: "Lorem ipsum dolor sit Lorem ipsum dolor sit",
-          image:
-            "https://www.analyticsinsight.net/wp-content/uploads/2021/08/cp2.jpg",
-        },
-        {
-          date: "2019",
-          subtitle: "it is image ",
-          title: "there is a title",
-          describe: "Lorem ipsum dolor sit Lorem ipsum dolor sit",
-          image:
-            "https://www.analyticsinsight.net/wp-content/uploads/2021/08/cp2.jpg",
-        },
-        {
-          date: "2019",
-          subtitle: "it is image ",
-          title: "there is a title",
-          describe: "Lorem ipsum dolor sit Lorem ipsum dolor sit",
-          image:
-            "https://www.analyticsinsight.net/wp-content/uploads/2021/08/cp2.jpg",
-        },
-        {
-          date: "2019",
-          subtitle: "it is image ",
-          title: "there is a title",
-          describe: "Lorem ipsum dolor sit Lorem ipsum dolor sit",
-          image:
-            "https://www.analyticsinsight.net/wp-content/uploads/2021/08/cp2.jpg",
-        },
-        {
-          date: "2019",
-          subtitle: "it is image ",
-          title: "there is a title",
-          describe: "Lorem ipsum dolor sit Lorem ipsum dolor sit",
-          image:
-            "https://www.analyticsinsight.net/wp-content/uploads/2021/08/cp2.jpg",
-        },
-      ],
+     
     };
   },
+  computed:{
+    posts(){
+      return this.$store.getters['post/loadedPosts']
+    }
+  },
+  mounted(){
+    return this.$store.dispatch("post/stroePosts");
+  }
 };
 </script>
 <style scoped>

@@ -65,7 +65,7 @@ export default {
   }),
   methods: {
     loginUser() {
-      this.$store.dispatch("stroeToken", {
+      this.$store.dispatch("login/stroeToken", {
         email: this.email,
         password: this.password,
       });
