@@ -249,6 +249,7 @@ export default {
       this.$router.push("/market");
     },
   },
+ 
 };
 </script>
 

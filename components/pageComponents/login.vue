@@ -1,4 +1,4 @@
- <template>
+<template>
   <v-container>
     <div class="card-conatiner bottom">
       <div class="form-container">
@@ -11,34 +11,16 @@
           </p>
         </div>
         <v-form ref="form" v-model="valid" lazy-validation>
-          <v-text-field
-            v-model="email"
-            :rules="emailRules"
-            label="E-mail"
-            required
-            class="mt-8"
-          ></v-text-field>
-          <v-text-field
-            v-model="password"
-            :rules="nameRules"
-            label="password"
-            required
-          ></v-text-field>
+          <v-text-field v-model="email" label="E-mail" required class="mt-8"></v-text-field>
+          <v-text-field v-model="password" label="password" required></v-text-field>
 
-          <v-btn
-            class="mt-5"
-            min-width="100%"
-            color="blue darken-4"
-            dark
-            @click="loginUser"
-          >
+
+          <v-btn class="mt-5" min-width="100%" color="blue darken-4" dark @click="loginUser">
             Login
           </v-btn>
           <v-spacer></v-spacer>
           <div class="app-color-blue text-center mt-5">
-            <nuxt-link class="white--text mt-4" to="/signup"
-              >Dont have account ?</nuxt-link
-            >
+            <nuxt-link class="white--text mt-4" to="/signup">Dont have account ?</nuxt-link>
           </div>
         </v-form>
       </div>
@@ -48,11 +30,14 @@
     </div>
   </v-container>
 </template>
-    <script>
+<script>
+import axios from 'axios'
 export default {
   data: () => ({
     valid: true,
+    name: "",
     password: "",
+    user_id: "",
     nameRules: [
       (v) => !!v || "password is required",
       (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
@@ -65,10 +50,17 @@ export default {
   }),
   methods: {
     loginUser() {
-      this.$store.dispatch("login/stroeToken", {
+      axios.post('http://192.168.1.163:5000/api/users/', {
         email: this.email,
-        password: this.password,
-      });
+        password: this.password
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
     },
   },
 };
@@ -78,11 +70,13 @@ export default {
   display: flex;
   justify-content: end;
 }
+
 .img-container img {
   width: 90%;
   object-fit: cover;
   border-radius: 20px;
 }
+
 .card-conatiner {
   display: flex;
   flex-direction: row;
@@ -92,6 +86,7 @@ export default {
   border-radius: 16px;
   margin-bottom: 7rem;
 }
+
 .form-container {
   justify-content: end;
   align-items: flex-end;
@@ -101,6 +96,7 @@ export default {
 .bottom {
   margin-bottom: 20rem;
 }
+
 @media only screen and (max-width: 1100px) {
   .card-conatiner {
     width: 95vw;
