@@ -11,8 +11,8 @@
           </p>
         </div>
         <v-form ref="form" v-model="valid" lazy-validation>
-          <v-text-field v-model="email" label="E-mail" required class="mt-8"></v-text-field>
-          <v-text-field v-model="password" label="password" required></v-text-field>
+          <v-text-field v-model="email" label="E-mail" prepend-inner-icon="mdi-email-outline" required class="mt-8"></v-text-field>
+          <v-text-field v-model="password" type="password" prepend-inner-icon="mdi-lock-outline" label="password" required></v-text-field>
 
 
           <v-btn class="mt-5" min-width="100%" color="blue darken-4" dark @click="loginUser">
@@ -40,7 +40,7 @@ export default {
     user_id: "",
     nameRules: [
       (v) => !!v || "password is required",
-      (v) => (v && v.length <= 10) || "Name must be less than 10 characters",
+      (v) => (v && v.length <= 6) || "Name must be less than 6 characters",
     ],
     email: "",
     emailRules: [
@@ -50,18 +50,11 @@ export default {
   }),
   methods: {
     loginUser() {
-      axios.post('http://192.168.1.163:5000/api/users/', {
-        email: this.email,
-        password: this.password
-      })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
+      this.$store.dispatch("register/stroeToken", {
+          email: this.email,
+          password: this.password,
         });
-
-    },
+    }
   },
 };
 </script>

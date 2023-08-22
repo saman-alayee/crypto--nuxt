@@ -1,5 +1,5 @@
 import Vuex from 'vuex'
-import login from './modules/login'
+import register from './modules/register'
 import post from './modules/post'
 
 const createStore = () => {
@@ -13,9 +13,9 @@ const createStore = () => {
         getters: {
         },
         modules: {
-            login, post
+            register, post
         }
 
     })
 }
-export default createStore
+export default createStore;
