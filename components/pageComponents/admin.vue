@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row class="bottom">
-     
+
       <v-col class="mt-3" md="12" sm="12">
         <v-card elevation="11" color="dark" outlined shaped>
           <v-card-title>write infomation of your products</v-card-title>
@@ -19,13 +19,15 @@
                 rows="1"></v-textarea>
               <!-- Thumbnail Image -->
               <label class="white--text" for="file input">Thumbnail Image</label>
-              <v-file-input ref="thumbnailImageInput" label="File input" prepend-icon="mdi-camera" :rules="rules" accept="image/*" ></v-file-input>
+              <v-file-input ref="thumbnailImageInput" label="File input" prepend-icon="mdi-camera" :rules="rules"
+                accept="image/*"></v-file-input>
 
               <img v-if="thumbnailImage" :src="thumbnailImage" alt="Thumbnail Image" class="uploaded-image">
 
               <!-- All Images -->
               <label class="white--text" for="file input">All Images</label>
-              <v-file-input ref="allImageInput" multiple label="File input" :rules="rules" accept="image/*" ></v-file-input>
+              <v-file-input ref="allImageInput" multiple label="File input" :rules="rules"
+                accept="image/*"></v-file-input>
 
               <div v-for="(image, index) in allImages" :key="index">
                 <img :src="image" alt="Uploaded Image" class="uploaded-image">
@@ -41,6 +43,7 @@
 </template>
   
 <script>
+import axios from 'axios';
 export default {
   data: () => ({
     name: '',
@@ -57,16 +60,30 @@ export default {
 
   methods: {
     async submitForm() {
+      console.log(localStorage.getItem('adminToken'))
       const isValid = await this.$refs.form.validate();
 
       if (isValid) {
-        // Form is valid, perform submission logic here
+
+        try {
+          const response = await axios.post(`${this.$axios.defaults.baseURL}/api/products`, {
+            headers: {
+              Authorization
+                :
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGU0YjVjNzlkMDQ5NWVhNGY1YzYwNzAiLCJpYXQiOjE2OTI3OTkxMjV9.vaLi7cTIFqcWxuGgNp9P8YNHxR29z6Ou4hT2dWVWTig" // Include the token in the header
+            },
+          })
+          console.log(response)
+        } catch (error) {
+          console.log(error)
+
+        }
         console.log('Form submitted');
       } else {
         console.log('Form validation failed');
       }
     },
-   
+
   },
 
 }

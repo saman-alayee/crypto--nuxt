@@ -8,7 +8,7 @@
   <script>
   import Admin from "../../components/pageComponents/admin.vue";
   export default {
-    components: { Admin },
+    components: { Admin },middleware: 'auth',
   };
   </script>
   

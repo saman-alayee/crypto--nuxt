@@ -16,7 +16,8 @@ const post = {
         }
     },
     actions: {
-        async stroePosts({ commit }) {
+        
+        async getPosts({ commit }) {
             try {
                 const response = await axios.get(`${this.$axios.defaults.baseURL}/api/products`, {
                 })
