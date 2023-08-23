@@ -3,11 +3,11 @@
     <v-row>
       <v-col v-for="post in posts" :key="post.title" cols="12" md="3" sm="6"
         ><BaseCardBlog
-          :image="post.image"
+          :image="post.thumbnailImage"
           :date="post.category"
-          :describe="post.describe"
+          :describe="post.shortDescription"
           :subtitle="post.price"
-          :title="post.title"
+          :title="post.name"
       /></v-col>
     </v-row>
   </v-container>

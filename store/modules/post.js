@@ -18,7 +18,7 @@ const post = {
     actions: {
         async stroePosts({ commit }) {
             try {
-                const response = await axios.get('https://fakestoreapi.com/products/', {
+                const response = await axios.get(`${this.$axios.defaults.baseURL}/api/products`, {
                 })
                 console.log(response.data)
                 commit('setPosts', response.data)

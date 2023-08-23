@@ -3,8 +3,8 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - nikan_project',
-    title: 'nikan_project',
+    titleTemplate: '%s - Crypto',
+    title: 'Crypto',
     htmlAttrs: {
       lang: 'en',
       dir: 'ltr'
@@ -24,7 +24,7 @@ export default {
   css: [
   ],
   axios: {
-    baseURL:"http://192.168.1.34:5000"
+    baseURL:"http://192.168.1.163:5000"
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [

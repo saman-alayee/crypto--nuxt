@@ -5,7 +5,7 @@
       height="200px"
       :src="image"
     >
-      <v-card-title>{{ subtitle }}</v-card-title>
+      <v-card-title><v-btn style="color: black;background-color: aliceblue;" class="dark--text" variant="outlined" text><b>{{subtitle}}$</b> </v-btn></v-card-title>
     </v-img>
 
     <v-card-subtitle class="pb-0"> {{ date }} </v-card-subtitle>
