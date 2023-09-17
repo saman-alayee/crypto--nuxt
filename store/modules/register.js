@@ -28,6 +28,7 @@ const login = {
             password: password,
           }
         );
+        
         Swal.fire({
           title: `welcome ${email}`,
           icon: "success",
@@ -39,7 +40,8 @@ const login = {
         });
         console.log(response.data);
         commit("setToken", response.data);
-      } catch (error) {
+      } 
+      catch (error) {
         Swal.fire({
           title: "Error!",
           text: "There is a problem, please try again",

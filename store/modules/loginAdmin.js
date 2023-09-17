@@ -15,7 +15,6 @@ const login = {
   },
   actions: {
     async storeToken({ commit }, { email, password }) {
-      console.log(this.$axios.defaults.baseURL);
       try {
         const response = await axios.post(
           `${this.$axios.defaults.baseURL}/api/auth`, // usage of base url
@@ -24,6 +23,7 @@ const login = {
             password: password,
           }
         );
+        
         Swal.fire({
           title: `welcome ${email}`,
           icon: "success",

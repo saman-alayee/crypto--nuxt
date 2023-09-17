@@ -11,8 +11,10 @@
           </p>
         </div>
         <v-form ref="form" v-model="valid" lazy-validation>
-          <v-text-field v-model="email" label="E-mail" prepend-inner-icon="mdi-email-outline" required class="mt-8"></v-text-field>
-          <v-text-field v-model="password" type="password" prepend-inner-icon="mdi-lock-outline" label="password" required></v-text-field>
+          <v-text-field v-model="email" label="E-mail" prepend-inner-icon="mdi-email-outline" required
+            class="mt-8"></v-text-field>
+          <v-text-field v-model="password" type="password" prepend-inner-icon="mdi-lock-outline" label="password"
+            required></v-text-field>
 
 
           <v-btn class="mt-5" min-width="100%" color="blue darken-4" dark @click="loginUser">
@@ -50,9 +52,12 @@ export default {
   methods: {
     loginUser() {
       this.$store.dispatch("register/stroeToken", {
-          email: this.email,
-          password: this.password,
-        });
+        email: this.email,
+        password: this.password,
+      });
+      webengage.user.login('9SBOkLVMWbbbbbvPX'); //9SBOkLVMWvPX is the unique user identifier being used here
+      webengage.user.setAttribute('we_email', 'ssssssssssssssssssss@doe.com');
+      webengage.user.setAttribute('we_birth_date', '1986-08-19');
     }
   },
 };

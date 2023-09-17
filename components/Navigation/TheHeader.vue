@@ -65,7 +65,6 @@ export default {
   flex: 1;
 }
 .login-btn {
-  transform: skew(-20deg);
   border-radius: 4px;
   
 }

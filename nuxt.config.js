@@ -1,6 +1,7 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
+  ssr:true,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - Crypto',
@@ -24,7 +25,7 @@ export default {
   css: [
   ],
   axios: {
-    baseURL:"http://192.168.1.163:5000"
+    baseURL:"http://192.168.1.161:5000"
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
