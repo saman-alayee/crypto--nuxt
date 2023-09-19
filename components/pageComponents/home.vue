@@ -1,16 +1,17 @@
 <template>
   <v-container>
     <v-row justify="center">
-      <v-col class="mt-8" cols="12" md="6" sm="12" align-self="center">
+      <v-col class="mt-4" cols="12" md="6" sm="12" align-self="center">
         <div class="space-container">
           <BaseText
             title="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus
             quisquam eligendi dolore."
             fontsize_title="30"
-            fontsize_text="16"
-            text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam libero dolore earum qui non perferendis accusantium quo quisquam itaque ab temporibus consequatur laudantium aspernatur id quasi, molestiae atque error quos rerum minima saepe iste fuga numquam. Itaque delectus excepturi quam dicta reprehenderit, ducimus consectetur alias placeat. Totam expedita consequuntur quo.!"
+            fontsize_text="18"
+            text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti blanditiis nihil magni a officia reprehenderit, ad aperiam accusamus, eveniet libero non dicta, deserunt labore est quia? Odio maxime vel, tempore hic error eius dolor ea vero tempora aliquid, nisi excepturi reiciendis tenetur nihil similique labore deserunt? Dolore quaerat corporis eos perferendis, repudiandae repellendus blanditiis provident quae quia minima velit aperiam sapiente. Repudiandae, quidem. Aliquam deleniti eos, sed architecto dicta facilis nulla distinctio! Nulla illo voluptatem ipsa, fugit mollitia amet ea? Architecto suscipit ut explicabo eos, consequatur odit quis aliquam!"
           />
-          <Basebutton @click="goMarket" text="see market" color="white" />
+          <p></p>
+          <Basebutton @click="goMarket" text="see market" color="white" />  
           <Basebutton @click="goMarket" text="login" color="error" />
         </div>
       </v-col>
@@ -25,7 +26,7 @@
     <v-row>
       <v-col cols="12" md="2" sm="3" v-for="logo in logos" :key="logo.id"
         ><div class="logo-container">
-          <img :src="logo.file" alt="cryypto image" /></div
+          <img :src="logo.file" alt="crypto image" /></div
       ></v-col>
     </v-row>
     <v-row justify="center">
@@ -95,14 +96,14 @@
     <v-row>
       <v-col
         cols="12"
-        md="4"
+        md="3"
         sm="6"
         v-for="item in cryptoNames"
         :key="item.name"
       >
         <v-card
           class="mx-auto rounded-lg"
-          max-width="280"
+          max-width="340"
           outlined
           style="border-color: white"
         >
@@ -156,7 +157,7 @@
       ></v-col>
     </v-row>
     <v-row class="bottom" justify="center">
-      <v-col cols="12" md="4" sm="6" v-for="card in cards" :key="card.title">
+      <v-col cols="12" md="3" sm="6" v-for="card in cards" :key="card.title">
         <Basecard
           :image="card.image"
           :title="card.title"
@@ -173,6 +174,13 @@
 import Basebutton from "@/components/elements/baseButton.vue";
 import Basecard from "@/components/elements/baseCard.vue";
 import BaseText from "@/components/elements/baseText.vue";
+import bitcoin from '../../assets/images/vectors/bitcoin.svg'
+import dash from '../../assets/images/vectors/dash-3.svg'
+import dogecoin from '../../assets/images/vectors/dogecoin.svg'
+import eos from '../../assets/images/vectors/eos-3.svg'
+import tron from '../../assets/images/vectors/tron.svg'
+import tether from '../../assets/images/vectors/tether.svg'
+
 export default {
   components: { Basebutton, BaseText, Basecard },
   data() {
@@ -181,27 +189,27 @@ export default {
 
       logos: [
         {
-          file: "https://media.licdn.com/dms/image/C4E12AQEzvQvnN426Xg/article-cover_image-shrink_720_1280/0/1606703783771?e=2147483647&v=beta&t=CDy_PnYOK-Jy2Wlj_KALyNYslnf-k6cYCSqZpgRZAnQ",
+          file: bitcoin,
           id: 1,
         },
         {
-          file: "https://media.licdn.com/dms/image/C4E12AQEzvQvnN426Xg/article-cover_image-shrink_720_1280/0/1606703783771?e=2147483647&v=beta&t=CDy_PnYOK-Jy2Wlj_KALyNYslnf-k6cYCSqZpgRZAnQ",
+          file: dash,
           id: 2,
         },
         {
-          file: "https://media.licdn.com/dms/image/C4E12AQEzvQvnN426Xg/article-cover_image-shrink_720_1280/0/1606703783771?e=2147483647&v=beta&t=CDy_PnYOK-Jy2Wlj_KALyNYslnf-k6cYCSqZpgRZAnQ",
+          file: dogecoin,
           id: 3,
         },
         {
-          file: "https://media.licdn.com/dms/image/C4E12AQEzvQvnN426Xg/article-cover_image-shrink_720_1280/0/1606703783771?e=2147483647&v=beta&t=CDy_PnYOK-Jy2Wlj_KALyNYslnf-k6cYCSqZpgRZAnQ",
+          file: eos,
           id: 4,
         },
         {
-          file: "https://media.licdn.com/dms/image/C4E12AQEzvQvnN426Xg/article-cover_image-shrink_720_1280/0/1606703783771?e=2147483647&v=beta&t=CDy_PnYOK-Jy2Wlj_KALyNYslnf-k6cYCSqZpgRZAnQ",
+          file: tron,
           id: 5,
         },
         {
-          file: "https://media.licdn.com/dms/image/C4E12AQEzvQvnN426Xg/article-cover_image-shrink_720_1280/0/1606703783771?e=2147483647&v=beta&t=CDy_PnYOK-Jy2Wlj_KALyNYslnf-k6cYCSqZpgRZAnQ",
+          file: tether,
           id: 6,
         },
       ],
@@ -221,8 +229,19 @@ export default {
           shortName: "ETH",
           price: "835$",
         },
+        {
+          name: "Bitcoin",
+          shortName: "BTC",
+          price: "555$",
+        },
       ],
       cards: [
+        {
+          title: "Lorem ipsum dolor sit",
+          describe: "Lorem ipsum dolor sit Lorem ipsum dolor sit",
+          image:
+            "https://www.coindesk.com/resizer/FzvHZV_Yd5ln4EKPNEZBGDAeTDU=/1056x613/filters:quality(80):format(jpg)/cloudfront-us-east-1.images.arcpublishing.com/coindesk/P6RW3RZA2JAY7BY5N54YDVNVCU.png",
+        },
         {
           title: "Lorem ipsum dolor sit",
           describe: "Lorem ipsum dolor sit Lorem ipsum dolor sit",
@@ -231,9 +250,9 @@ export default {
         },
         {
           title: "Lorem ipsum dolor sit",
-          describe: "Lorem ipsum dolor sit Lorem ipsum dolor sit",
+          describe: "Lorem ipsum dolor Lorem ipsum Lorem ipsum sit Lorem ipsum dolor sit",
           image:
-            "https://cryptopotato.com/wp-content/uploads/2021/04/xrpusd-apr5.png",
+            "https://image.cnbcfm.com/api/v1/image/107167409-1671184641667-gettyimages-1234311542-sindeyev-notitle210729_npFdq.jpeg?v=1692386766",
         },
         {
           title: "Lorem ipsum dolor sit",
@@ -266,7 +285,7 @@ export default {
 }
 
 .logo-container img {
-  width: 10rem;
+  width: 9rem;
 }
 .title-field p {
   text-align: center;

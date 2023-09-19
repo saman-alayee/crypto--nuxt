@@ -15,7 +15,7 @@
         </div>
         <v-form ref="form" v-model="valid" lazy-validation>
           <v-text-field v-model="name" :rules="nameRules" label="name" required class="mt-8"></v-text-field>
-          <v-text-field v-model="email" :rules="emailRules" label="E-mail" required class="mt-8"></v-text-field>
+          <v-text-field v-model="email" :rules="emailRules" label="E-mail" required class=""></v-text-field>
           <v-text-field v-model="password" type="password"  :rules="passwordRules" label="password" required></v-text-field>
           <v-text-field v-model="re_password" type="password" :rules="passwordRules" label="re_password" required></v-text-field>
 
@@ -41,7 +41,6 @@ export default {
     name: "",
     passwordRules: [
       (v) => !!v || "password is required",
-      (v) => (v && v.length <= 6) || "Name must be less than 6 characters",
     ],
     email: "",
     emailRules: [

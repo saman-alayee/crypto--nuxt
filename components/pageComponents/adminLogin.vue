@@ -6,12 +6,8 @@
                 label="Email"></v-text-field>
 
             <v-text-field :readonly="loading" :rules="[required]" v-model="password"
-            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
-            :type="show1 ? 'text' : 'password'"
-            name="input-10-1"
-            label="Normal with hint text"
-            hint="At least 8 characters"
-            @click:append="show1 = !show1"></v-text-field>
+                :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'" :type="show1 ? 'text' : 'password'" name="input-10-1"
+                label="Password" hint="At least 8 characters" @click:append="show1 = !show1"></v-text-field>
 
             <br>
 
@@ -40,12 +36,8 @@ export default {
                 email: this.email,
                 password: this.password
             })
-            
+
             this.loading = false
-
-
-
-
         },
         required(v) {
             return !!v || 'Field is required'

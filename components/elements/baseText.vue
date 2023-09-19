@@ -33,10 +33,11 @@ export default {
 
 <style scoped>
 .text-container p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6rem;
 }
 .text-container h1 {
   line-height: 3rem;
+  text-align: left;
 }
 </style>
