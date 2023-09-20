@@ -20,18 +20,17 @@ const coin = {
     async getCoins({ commit }) {
       try {
         // Define your API key for CoinMarketCap
-        const apiKey = "28d188d3-a39f-472c-862c-08ff71905663"; 
+        const apiKey = "28d188d3-a39f-472c-862c-08ff71905663";
         const headers = {
           "X-CMC_PRO_API_KEY": apiKey,
         };
 
         const response = await axios.get(
-          "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
-          { headers } // Pass the headers as an option
+          "https://api.coingecko.com/api/v3/exchanges",
+          {} // Pass the headers as an option
         );
-
-        commit("setCoins", response.data.data); // Use response.data.data to get the actual coin data
-        console.log(response.data.data);
+        console.log((response.data));
+        commit("setCoins", response.data); // Use response.data.data to get the actual coin data
       } catch (error) {
         Swal.fire({
           title: "Error!",

@@ -3,7 +3,7 @@
   <header class="the-header">
     <TheSideNavToggle @toggle="$emit('sidenavToggle')" />
     <div class="logo">
-      <nuxt-link to="/">WD BLOG</nuxt-link>
+      <nuxt-link to="/">CRYPTO</nuxt-link>
     </div>
     <div class="spacer"></div>
     <div class="navigation-items">
@@ -12,6 +12,8 @@
         <li class="nav-item"><nuxt-link to="/Products">Products</nuxt-link></li>
         <li class="nav-item"><nuxt-link to="/about">About</nuxt-link></li>
         <li class="nav-item"><nuxt-link to="/admin">Admin</nuxt-link></li>
+        <li class="nav-item"><nuxt-link to="/market">Market</nuxt-link></li>
+
         <li class="nav-item login-btn"><nuxt-link to="/Login">Login</nuxt-link></li>
       </ul>
     </div>
