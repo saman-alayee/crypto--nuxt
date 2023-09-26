@@ -26,7 +26,7 @@ export default {
   css: [
   ],
   axios: {
-    baseURL:"http://192.168.1.161:5000"
+    baseURL:"http://localhost:5000"
   },
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [

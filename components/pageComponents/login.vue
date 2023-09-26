@@ -11,13 +11,16 @@
           </p>
         </div>
         <v-form ref="form" v-model="valid" lazy-validation>
-          <v-text-field v-model="email" label="E-mail" prepend-inner-icon="mdi-email-outline" required
-            class="mt-8"></v-text-field>
-          <v-text-field v-model="password" type="password" prepend-inner-icon="mdi-lock-outline" label="password"
-            required></v-text-field>
+          <v-text-field v-model="email" :rules="emailRules" label="E-mail" prepend-inner-icon="mdi-email-outline"
+            required class="space-form">
+            <v-messages :value="emailErrors"></v-messages>
+          </v-text-field>
+          <v-text-field v-model="password" :rules="passwordRules" class="space-form" type="password"
+            prepend-inner-icon="mdi-lock-outline" label="password"  required>
+            <v-messages :value="passwordErrors"></v-messages>
+          </v-text-field>
 
-
-          <v-btn class="mt-5" min-width="100%" color="blue darken-4" dark @click="loginUser">
+          <v-btn class="space-form" min-width="100%" color="blue darken-4" dark @click="loginUser">
             Login
           </v-btn>
           <v-spacer></v-spacer>
@@ -32,32 +35,30 @@
     </div>
   </v-container>
 </template>
+
 <script>
 export default {
   data: () => ({
     valid: true,
-    name: "",
-    password: "",
-    user_id: "",
-    nameRules: [
-      (v) => !!v || "password is required",
-      (v) => (v && v.length <= 6) || "Name must be less than 6 characters",
-    ],
     email: "",
+    password: "",
+    emailErrors: [],
+    passwordErrors: [],
     emailRules: [
       (v) => !!v || "E-mail is required",
       (v) => /.+@.+\..+/.test(v) || "E-mail must be valid",
     ],
+    passwordRules: [
+      (v) => !!v || "Password is required",
+      (v) => (v && v.length > 6) || "Password must be less than 6 characters",
+    ],
   }),
   methods: {
     loginUser() {
-      this.$store.dispatch("register/stroeToken", {
+      this.$store.dispatch("register/storeToken", {
         email: this.email,
         password: this.password,
       });
-      webengage.user.login('9SBOkLVMWbbbbbvPX'); //9SBOkLVMWvPX is the unique user identifier being used here
-      webengage.user.setAttribute('we_email', 'ssssssssssssssssssss@doe.com');
-      webengage.user.setAttribute('we_birth_date', '1986-08-19');
     }
   },
 };
@@ -77,8 +78,8 @@ export default {
 .card-conatiner {
   display: flex;
   flex-direction: row;
-  width: 1200px;
-  height: 35rem;
+  width: 100%;
+  height: 45rem;
   background-color: #18162c;
   border-radius: 16px;
   margin-bottom: 7rem;
@@ -92,6 +93,10 @@ export default {
 
 .bottom {
   margin-bottom: 20rem;
+}
+
+.space-form {
+  margin-top: 4rem;
 }
 
 @media only screen and (max-width: 1100px) {

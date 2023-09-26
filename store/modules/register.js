@@ -18,7 +18,7 @@ const login = {
     },
   },
   actions: {
-    async stroeToken({ commit }, { email, password }) {
+    async storeToken({ commit }, { email, password }) {
       console.log(this.$axios.defaults.baseURL)
       try {
         const response = await axios.post(
@@ -58,6 +58,34 @@ const login = {
             email: email,
             password: password,
             name: name,
+          }
+        );
+        Swal.fire({
+          title: `Account created has been created successfully `,
+          icon: "success",
+          showConfirmButton: false,
+          timerProgressBar: true,
+          timer: 3000,
+          toast: true,
+          position: "top",
+        });
+        console.log(response.data);
+        commit("setName", response.data);
+      } catch (error) {
+        Swal.fire({
+          title: "Error!",
+          text: "There is a problem, please try again",
+          icon: "error",
+          confirmButtonText: "Ok",
+        });
+      }
+    },
+    async editUser({ commit }, { formData }) {
+      try {
+        const response = await axios.patch(
+          `${this.$axios.defaults.baseURL}/api/users`,
+          {
+           formData
           }
         );
         Swal.fire({

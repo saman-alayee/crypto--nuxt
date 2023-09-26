@@ -83,11 +83,12 @@ export default {
 
       } catch (error) {
         Swal.fire({
-          title: "Error!",
-          text: "There is a problem, please try again",
-          icon: "error",
-          confirmButtonText: "Ok",
-        });
+  title: "Your work has been saved",
+  icon: "success", // Specify the icon here
+  showConfirmButton: false,
+  timer: 1500,
+});
+
       }
     },
     handleImageUpload(event) {
