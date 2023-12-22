@@ -4,7 +4,7 @@
       <baseSingleCard
         :category="product.category"
         :describe="product.description"
-        :image="product.thumbnailImage"
+        :image="product.attachmentFile"
         :price="product.price"
         :shortDescribe="product.shortDescription"
         :title="product.name"

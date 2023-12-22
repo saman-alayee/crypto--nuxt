@@ -39,9 +39,10 @@ const login = {
         console.log(response.data);
         commit("setToken", response.data);
       } catch (error) {
+        console.log(error.response.data)
         Swal.fire({
           title: "Error!",
-          text: "There is a problem, please try again",
+          text: error.response.data,
           icon: "error",
           confirmButtonText: "Ok",
         });

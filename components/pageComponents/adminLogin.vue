@@ -1,5 +1,5 @@
 <template>
-    <v-card class="mx-auto px-6 mt-8 py-8" max-width="500" color="#263238">
+    <v-card class="mx-auto px-6 mt-9 py-8" max-width="500" color="#263238">
         <v-card-title>Admin Login</v-card-title>
         <v-form v-model="form" @submit.prevent="onSubmit">
             <v-text-field v-model="email" :readonly="loading" :rules="[required]" class="mb-2" clearable

@@ -3,7 +3,7 @@
     <v-row>
       <v-col v-for="(post, index) in pagedPosts" :key="index" cols="12" md="3" sm="6">
         <BaseCardBlog
-          :image="post.thumbnailImage"
+          :image="post.attachmentFile"
           :date="post.category"
           :describe="post.shortDescription"
           :subtitle="post.price"
