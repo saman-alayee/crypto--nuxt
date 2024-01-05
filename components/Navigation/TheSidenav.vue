@@ -15,8 +15,12 @@
           </div>
           <div class="nav-item-container">
             <li class="nav-item"><nuxt-link to="/admin">Admin</nuxt-link></li>
-          </div><div class="nav-item-container">
+          </div>
+          <div class="nav-item-container">
             <li class="nav-item"><nuxt-link to="/Market">Market</nuxt-link></li>
+          </div>
+          <div class="nav-item-container">
+            <li class="nav-item"><nuxt-link to="/Quiz">Quiz</nuxt-link></li>
           </div>
         </ul>
       </div>
@@ -68,6 +72,7 @@ export default {
 .slide-side-leave-active {
   transition: all 0.3s ease-out;
 }
+
 .slide-side-enter,
 .slide-side-leave-to {
   transform: translateX(-100%);

@@ -12,7 +12,7 @@
         <div class="main"></div>
         <Nuxt />
       </v-container>
-      <Footer />
+      <Footer v-if="shouldShowFooter" />
     </div>
   </v-app>
 </template>
@@ -48,7 +48,14 @@ export default {
     },
     shouldShowHeader() {
       // Define an array of page names where you want to show the sidebar
-      const pagesWithSidebar = ['index', 'login', 'market', 'admin', 'about', 'products', 'signup', 'login_admin','products-id']; // Replace with actual page names
+      const pagesWithSidebar = ['index', 'login', 'market', 'admin', 'about', 'products', 'signup', 'login_admin','products-id','quiz']; // Replace with actual page names
+      console.log(this.$route.name)
+      return pagesWithSidebar.includes(this.$route.name);
+
+    },
+    shouldShowFooter() {
+      // Define an array of page names where you want to show the sidebar
+      const pagesWithSidebar = ['index', 'login', 'market', 'admin', 'about', 'products', 'signup', 'login_admin','products-id','quiz']; // Replace with actual page names
       console.log(this.$route.name)
       return pagesWithSidebar.includes(this.$route.name);
 

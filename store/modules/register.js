@@ -1,10 +1,12 @@
 import axios from "axios";
 import Swal from "sweetalert2";
+import Cookies from "js-cookie";
 
 const login = {
   namespaced: true,
   state: {
     token: "",
+    email: "",
     isAuth: false,
     name:""
   },
@@ -38,8 +40,13 @@ const login = {
           toast: true,
           position: "top",
         });
-        console.log(response.data);
-        commit("setToken", response.data);
+        commit("setToken", response.data.token);
+        
+        Cookies.set("Token", response.data.token);
+        Cookies.set("Email", response.data.email);
+        Cookies.set("Name", response.data.username);
+        // this.$router.push({ path: "profile" });
+
       } 
       catch (error) {
         Swal.fire({
@@ -69,7 +76,7 @@ const login = {
           toast: true,
           position: "top",
         });
-        console.log(response.data);
+        this.$router.push({ path: "login" });
         commit("setName", response.data);
       } catch (error) {
         Swal.fire({

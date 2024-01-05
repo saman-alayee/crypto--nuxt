@@ -16,8 +16,10 @@
         <v-form ref="form" v-model="valid" lazy-validation>
           <v-text-field v-model="name" :rules="nameRules" label="name" required class="mt-8"></v-text-field>
           <v-text-field v-model="email" :rules="emailRules" label="E-mail" required class=""></v-text-field>
-          <v-text-field v-model="password" type="password"  :rules="passwordRules" label="password" required></v-text-field>
-          <v-text-field v-model="re_password" type="password" :rules="passwordRules" label="re_password" required></v-text-field>
+          <v-text-field v-model="password" type="password" :rules="passwordRules" label="password"
+            required></v-text-field>
+          <v-text-field v-model="re_password" type="password" :rules="passwordRules" label="re_password"
+            required></v-text-field>
 
           <v-btn class="mt-5" min-width="100%" color="blue darken-4" dark @click="signupUser">
             sign up
@@ -33,6 +35,7 @@
   </v-container>
 </template>
 <script>
+import Swal from "sweetalert2";
 
 export default {
   data: () => ({
@@ -55,12 +58,27 @@ export default {
 
   methods: {
     signupUser() {
-      this.$store.dispatch("register/registerUser", {
+      if (this.password == this.re_password) {
+        this.$store.dispatch("register/registerUser", {
           email: this.email,
           password: this.password,
-          name:this.name
+          name: this.name
         });
-    }
+      }
+      else{
+        Swal.fire({
+          title: `Password and re_password is not same  `,
+          icon: "success",
+          showConfirmButton: true,
+          timerProgressBar: true,
+          confirmButtonColor: 'red',
+          timer: 6000,
+          toast: true,
+          position: "top",
+        });
+      }
+    },
+
   },
 };
 
